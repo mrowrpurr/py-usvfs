@@ -28,48 +28,41 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="PythonConfiguration">
+    <PythonExe>C:\Users\mrowr\.pyenv\pyenv-win\versions\3.7.9-win32\python.exe</PythonExe>
+    <PythonHome>C:\Users\mrowr\.pyenv\pyenv-win\versions\3.7.9-win32\</PythonHome>
+    <PythonDevVersion>1</PythonDevVersion>
+    <PythonCorePDBVersion>1</PythonCorePDBVersion>
+    <PythonCoreDVersion>1</PythonCoreDVersion>
+    <PythonDebugSuffix>_d</PythonDebugSuffix>
+    <PythonDExe>C:\Users\mrowr\.pyenv\pyenv-win\versions\3.7.9-win32\python.exe</PythonDExe>
     <RegistryView>RegistryView.Registry32</RegistryView>
     <RegistryView Condition="$(Platform) == 'x64'">RegistryView.Registry64</RegistryView>
     <PythonTag>$(PythonVersion)-32</PythonTag>
     <PythonTag Condition="$(Platform) == 'x64'">$(PythonVersion)</PythonTag>
-    <PythonHome Condition="$(PythonHome) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\$(PythonTag)\InstallPath', null, null, $(RegistryView)))</PythonHome>
-    <PythonHome Condition="$(PythonHome) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\$(PythonTag)\InstallPath', null, null, $(RegistryView)))</PythonHome>
-    <PythonExe Condition="$(PythonExe) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\$(PythonTag)\InstallPath', 'ExecutablePath', null, $(RegistryView)))</PythonExe>
-    <PythonExe Condition="$(PythonExe) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\$(PythonTag)\InstallPath', 'ExecutablePath', null, $(RegistryView)))</PythonExe>
-    <PythonExe Condition="$(PythonExe) == '' and $(PythonHome) != ''">$(PythonHome)python.exe</PythonExe>
-    <PythonDevVersion>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'dev', null, $(RegistryView)))</PythonDevVersion>
-    <PythonDevVersion Condition="$(PythonDevVersion) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'dev', null, $(RegistryView)))</PythonDevVersion>
-    <PythonCorePDBVersion>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'core_pdb', null, $(RegistryView)))</PythonCorePDBVersion>
-    <PythonCorePDBVersion Condition="$(PythonCorePDBVersion) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'core_pdb', null, $(RegistryView)))</PythonCorePDBVersion>
-    <PythonCoreDVersion>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'core_d', null, $(RegistryView)))</PythonCoreDVersion>
-    <PythonCoreDVersion Condition="$(PythonCoreDVersion) == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\$(PythonTag)\InstalledFeatures', 'core_d', null, $(RegistryView)))</PythonCoreDVersion>
-    <PythonDebugSuffix Condition="$(PythonCoreDVersion) != ''">_d</PythonDebugSuffix>
-    <PythonDExe Condition="$(PythonExe) != '' and $(PythonDExe) == ''">$([System.IO.Path]::GetDirectoryName($(PythonExe)))\python$(PythonDebugSuffix).exe</PythonDExe>
-    <PythonDExe Condition="!Exists($(PythonDExe))">$(PythonExe)</PythonDExe>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup>
